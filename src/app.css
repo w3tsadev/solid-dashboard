@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Newsreader";
+    src: url("/fonts/Newsreader-VariableFont_wght.ttf")
+        format("truetype-variations");
+    font-weight: 300 500 700;
+    font-style: normal;
+}
+
+:root {
+    --background-rgb: 214, 219, 220;
+    --foreground-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-rgb: 0, 0, 0;
+        --foreground-rgb: 255, 255, 255;
+    }
+}
+
+body {
+    background: rgb(var(--background-rgb));
+    color: rgb(var(--foreground-rgb));
+    font-family: Newsreader, sans-serif;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@layer utilities {
+    .shimmer {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+    }
+
+    .shimmer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        animation: shimmer 1.5s linear infinite;
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.4) 20%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(255, 255, 255, 0.4) 80%,
+            transparent 100%
+        );
+    }
+
+    .dark .shimmer::before {
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(75, 85, 99, 0.1) 20%,
+            rgba(75, 85, 99, 0.3) 50%,
+            rgba(75, 85, 99, 0.1) 80%,
+            transparent 100%
+        );
+    }
+}
