@@ -8,9 +8,9 @@ interface AlertDialogProps {
   amount: number;
   name: string;
 }
+const [isOpen, setIsOpen] = createSignal(false);
 
 export default function AlertDialog(props: AlertDialogProps) {
-  const [isOpen, setIsOpen] = createSignal(false);
   const [pending, start] = useTransition();
 
   const toggleDialog = (open: boolean) => {

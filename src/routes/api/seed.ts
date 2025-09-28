@@ -5,35 +5,10 @@ You should delete this file upon successful completion */
 
 /* --- --- */
 
-// import bcrypt from "bcrypt";
 // import postgres from "postgres";
-// import { invoices, customers, revenue, users } from "~/lib/placeholder-data";
+// import { invoices, customers, revenue } from "~/lib/placeholder-date";
 
 // const sql = postgres(process.env.DATABASE_URL);
-
-// async function seedUsers() {
-//   await sql`
-//     CREATE TABLE IF NOT EXISTS users (
-//       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-//       name VARCHAR(255) NOT NULL,
-//       email TEXT NOT NULL UNIQUE,
-//       password TEXT NOT NULL
-//     );
-//   `;
-
-//   const insertedUsers = await Promise.all(
-//     users.map(async (user) => {
-//       const hashedPassword = await bcrypt.hash(user.password, 10);
-//       return sql`
-//         INSERT INTO users (id, name, email, password)
-//         VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
-//         ON CONFLICT (id) DO NOTHING;
-//       `;
-//     }),
-//   );
-
-//   return insertedUsers;
-// }
 
 // async function seedInvoices() {
 //   await sql`
@@ -108,7 +83,6 @@ You should delete this file upon successful completion */
 //     await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
 //     const result = await sql.begin((sql) => [
-//       // seedUsers(),
 //       seedCustomers(),
 //       seedInvoices(),
 //       seedRevenue(),
